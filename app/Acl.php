@@ -7,5 +7,10 @@ class Acl extends Kwf_Acl_Component
         $this->allow('admin', 'kwf_user_changeuser');
         $this->allow('admin', 'kwf_user_users');
 
+        $this->addResource(new Zend_Acl_Resource('data_structure'));
+        $this->addResource(new Kwf_Acl_Resource_MenuUrl('data_shops',
+            array('text' => trl('Preisliste')),
+            '/admin/data/shops'), 'data_structure');
+            $this->addResource(new Zend_Acl_Resource('data_products'), 'data_structure');
     }
 }
