@@ -11,4 +11,10 @@ class Data_ProductsController extends Kwf_Controller_Action_Auto_Grid
         $this->_columns->add(new Kwf_Grid_Column('price', trl('Preis'), 200))
             ->setEditor(new Kwf_Form_Field_TextField());
     }
+
+    protected function _beforeInsert(Kwf_Model_Row_Interface $row, $submitRow)
+    {
+        parent::_beforeInsert($row, $submitRow);
+        $row->shop_id = $this->_getParam('shop_id');
+    }
 }

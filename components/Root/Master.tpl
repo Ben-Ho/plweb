@@ -11,7 +11,7 @@
             </div>
             <div id="outerContent">
                 <div id="content">
-                    <div class="left" id="innerContent">
+                    <div id="innerContent">
                         <?=$this->component($this->data);?>
                     </div>
                 </div>
