@@ -1,0 +1,21 @@
+.cssClass {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(mainColor);
+    padding: 5px;
+
+    .search {
+        display: table;
+        margin: auto;
+
+        input {
+            font-size: 20px;
+        }
+        .button {
+            float: right;
+            margin-left: 4px;
+        }
+    }
+}

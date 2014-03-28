@@ -40,3 +40,21 @@ body.frontend { background: var(lightGray); }
 .webForm .submitWrapper { margin: 10px 0px 10px 140px; }
 .webForm button { color: var(light); background: none !important; border: none !important; }
 .webForm button:hover { color: var(mainColor); }
+
+#innerContent {
+    margin-bottom: 25px;
+}
+
+/* BUTTON */
+.button {
+    background-color: #cc8023;
+
+    button {
+        background: none !important;
+        border: none !important;
+        padding: 5px 10px;
+        span {
+            color: #fff;
+        }
+    }
+}

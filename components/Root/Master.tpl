@@ -14,6 +14,7 @@
                     <div id="innerContent">
                         <?=$this->component($this->data);?>
                     </div>
+                    <?=$this->component($this->boxes['google']);?>
                 </div>
             </div>
             <div id="outerFooter">
