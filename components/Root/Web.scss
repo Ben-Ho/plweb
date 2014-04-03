@@ -45,6 +45,22 @@ body.frontend { background: var(lightGray); }
     margin-bottom: 25px;
 }
 
+.webForm {
+    form .kwfField {
+        label {
+            color: #fff;
+        }
+        input {
+            font-size: 20px;
+        }
+    }
+
+    .kwfButtonFlat {
+        float: right;
+        margin-right: 20px;
+    }
+}
+
 /* BUTTON */
 .button {
     background-color: #cc8023;

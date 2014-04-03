@@ -1,11 +1,11 @@
-Kwf.onElementReady('.menuMainWrapper', function (el) {
+Kwf.onElementReady('.menuMain', function (el) {
     var dragRegionWidth = 20;
     el.setStyle('margin-left', -(el.getWidth()-dragRegionWidth)+'px');
     var getMargin = function () {
         var marginLeft = el.getStyle('margin-left');
         return parseInt(marginLeft.substring(0, marginLeft.length-2));
     }
-    el.child('.dragRegion').on('click', function (ev) {
+    el.on('click', function (ev) {
         var margin = getMargin();
         if (margin < 0) {
             el.setStyle('margin-left', '0px');
@@ -13,6 +13,8 @@ Kwf.onElementReady('.menuMainWrapper', function (el) {
             el.setStyle('margin-left', -(el.getWidth() - dragRegionWidth)+'px');
         }
     });
+
+
 
 //    var dragging = false;
 //    var startX = null;

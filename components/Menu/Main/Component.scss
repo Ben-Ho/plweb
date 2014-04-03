@@ -1,7 +1,10 @@
 .cssClass {
     background-color: var(mainColorLight);
+    width: 85%;
     height: 100%;
-    width: 100%;
+    top: 5%;
+    z-index: 50;
+    position: absolute;
 
     .menu {
         padding: 1px 0px 1px 0px;
@@ -18,6 +21,18 @@
                 background-color: var(mainColor);
                 text-align: center;
             }
+        }
+
+        &:after {
+            width: 20px;
+            height: 100%;
+            position: absolute;
+            content: "";
+            top: 0;
+            right: 0;
+            background-color: var(secColorLight);
+            border: 1px solid var(mainColorLight);
+            border-left: none;
         }
     }
 }

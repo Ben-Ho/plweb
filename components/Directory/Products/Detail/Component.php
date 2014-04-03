@@ -5,6 +5,17 @@ class Directory_Products_Detail_Component extends Kwc_Directories_Item_Detail_Co
     {
         $ret = parent::getSettings();
         $ret['componentName'] = trlStatic('Produkt');
+        $ret['generators']['editForm'] = array(
+            'class' => 'Kwf_Component_Generator_Page_Static',
+            'component' => 'Directory_Products_Detail_Form_Component'
+        );
+        return $ret;
+    }
+
+    public function getTemplateVars(Kwf_Component_Renderer_Abstract $renderer = null)
+    {
+        $ret = parent::getTemplateVars($renderer);
+        $ret['editForm'] = $this->getData()->getChildComponent('_editForm');
         return $ret;
     }
 }
