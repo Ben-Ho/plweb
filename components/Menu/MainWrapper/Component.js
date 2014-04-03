@@ -28,11 +28,13 @@ Kwf.onElementReady('.menuMainWrapper', function (el) {
     };
 
     el.child('.dragRegion').on('mousedown', function (ev) {
-        console.log('Mouse Down Event');
+        console.log('Mouse Down');
         var mouseMoveFunction = function (ev) {
+            console.log('Mouse Move');
             moveFunction(ev.xy[0]);
         };
         var mouseEndFunction = function (ev) {
+            console.log('Mouse End');
             endFunction();
             Ext.getBody().un('mouseup', mouseEndFunction);
             Ext.getBody().un('mousemove', mouseMoveFunction);
@@ -45,15 +47,20 @@ Kwf.onElementReady('.menuMainWrapper', function (el) {
     });
 
     el.child('.dragRegion').on('touchstart', function (ev) {
+        console.log('Touch Start');
         var touchMoveFunction = function (ev) {
+            console.log('Touch Move');
             moveFunction(ev.browserEvent.touches[0].pageX);
         };
         var touchEndFunction = function (ev) {
+            console.log('Touch End');
             endFunction();
             Ext.getBody().un('touchend', touchEndFunction);
             Ext.getBody().un('touchmove', touchMoveFunction);
         };
 
+        console.log(ev.browserEvent);
+        console.log(ev.browserEvent.touches[0]);
         startFunction(ev.browserEvent.touches[0].pageX);
 
         Ext.getBody().on('touchend', touchEndFunction);
