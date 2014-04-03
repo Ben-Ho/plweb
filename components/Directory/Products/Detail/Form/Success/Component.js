@@ -1,3 +1,3 @@
 Kwf.onElementReady('.directoryProductsDetailFormSuccess', function () {
-    window.history.back();
+    window.location.href = document.referrer;
 });
