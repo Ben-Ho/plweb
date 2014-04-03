@@ -1,5 +1,5 @@
 <?php
-class Menu_Main_Component extends Kwc_Menu_Component
+class Menu_MainWrapper_Main_Component extends Kwc_Menu_Component
 {
     public static function getSettings()
     {

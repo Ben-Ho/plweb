@@ -18,6 +18,9 @@
             <div id="outerHeader">
             </div>
             <div id="outerContent">
+                <div class="menu">
+                    <?=$this->component($this->boxes['mainMenu']);?>
+                </div>
                 <div id="content">
                     <div id="innerContent">
                         <?=$this->component($this->data);?>
