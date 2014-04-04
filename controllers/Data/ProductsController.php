@@ -16,5 +16,13 @@ class Data_ProductsController extends Kwf_Controller_Action_Auto_Grid
     {
         parent::_beforeInsert($row, $submitRow);
         $row->shop_id = $this->_getParam('shop_id');
+        $row->component_id = 'root-products';
+    }
+
+    protected function _getSelect()
+    {
+        $ret = parent::_getSelect();
+        $ret->whereEquals('shop_id', $this->_getParam('shop_id'));
+        return $ret;
     }
 }
