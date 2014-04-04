@@ -12,6 +12,8 @@ class Pricelists_Shop_Form_Component extends Kwc_Form_Component
 
     protected function _beforeInsert(Kwf_Model_Row_Interface $row)
     {
+        parent::_beforeInsert($row);
         $row->shop_id = $this->getData()->parent->getRow()->id;
+        $row->component_id = 'root-products';
     }
 }
