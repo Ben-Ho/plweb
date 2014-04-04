@@ -2,9 +2,21 @@
     padding-top: 20px;
     background-color: var(mainColorLight);
 
-    .webForm {
+    .webForm.kwcForm,
+    .webForm.kwcForm.veryNarrow.gt350 {
         form {
-            padding-left: 20px;
+            padding-left: 25px;
+
+            .kwfField {
+                label {
+                    text-align: left;
+                }
+                .kwfFormFieldWrapper.hasLabel {
+                    input {
+                        max-width: 100%;
+                    }
+                }
+            }
         }
     }
 }
