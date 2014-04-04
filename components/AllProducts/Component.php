@@ -5,6 +5,7 @@ class AllProducts_Component extends Kwc_Directories_List_Component
     {
         $ret = parent::getSettings();
         $ret['generators']['child']['component']['view'] = 'AllProducts_View_Component';
+        $ret['componentName'] = trlStatic('Alle Produkte');
         return $ret;
     }
 
