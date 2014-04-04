@@ -1,0 +1,17 @@
+.cssClass {
+    .webForm.kwcForm.veryNarrow.gt350,
+    .webForm {
+        form {
+            .kwfField {
+                label {
+                    display: none;
+                }
+                input {
+                    width: 100%;
+                    max-width: 100%;
+                    padding-left: 25px;
+                }
+            }
+        }
+    }
+}
