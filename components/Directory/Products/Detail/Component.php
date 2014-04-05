@@ -16,6 +16,7 @@ class Directory_Products_Detail_Component extends Kwc_Directories_Item_Detail_Co
     {
         $ret = parent::getTemplateVars($renderer);
         $ret['editForm'] = $this->getData()->getChildComponent('_editForm');
+        $ret['productId'] = $this->getData()->getRow()->id;
         return $ret;
     }
 }
