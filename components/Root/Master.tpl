@@ -28,6 +28,9 @@
                     </div>
                     <?=$this->component($this->boxes['google']);?>
                 </div>
+                <div class="rightMenu">
+                    <?=$this->component($this->boxes['shoppingList']);?>
+                </div>
             </div>
             <div id="outerFooter">
             </div>

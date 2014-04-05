@@ -1,0 +1,60 @@
+.cssClass {
+    background-color: var(mainColorLight);
+    width: 85%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 50;
+    position: absolute;
+
+    .clearList {
+        margin-top: 1px;
+        padding: 5px 0px 5px 25px;
+        color: var(light);
+        background-color: var(mainColor);
+    }
+    .list {
+        padding: 1px 0px 1px 20px;
+
+        .product {
+            background-color: var(mainColor);
+            margin-bottom: 1px;
+
+            label {
+                line-height: 20px;
+                padding: 5px;
+                height: 20px;
+                display: block;
+
+                .name, .price {
+                    color: var(light);
+                    font-size: 20px;
+                }
+                .shop {
+                    color: #999999;
+                }
+                .checkbox, .name, .shop {
+                    float: left;
+                }
+                .price {
+                    float: right;
+                }
+                .checkbox {
+                    margin-top: 3px;
+                    margin-right: 3px;
+                }
+            }
+        }
+
+        &:after {
+            width: 20px;
+            height: 100%;
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            background-color: var(secColorLight);
+            border-left: 1px solid var(mainColorLight);
+        }
+    }
+}
