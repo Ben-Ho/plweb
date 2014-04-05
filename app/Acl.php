@@ -12,5 +12,8 @@ class Acl extends Kwf_Acl_Component
             array('text' => trl('Preisliste'), 'icon' => 'basket_add.png'),
             '/admin/data/shops'), 'data_structure');
             $this->addResource(new Zend_Acl_Resource('data_products'), 'data_structure');
+
+        $this->addResource(new Zend_Acl_Resource('javascript_products', '/admin/javascript/products'));
+        $this->allow('guest', 'javascript_products');
     }
 }
