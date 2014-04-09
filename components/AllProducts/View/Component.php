@@ -1,16 +1,10 @@
 <?php
 class AllProducts_View_Component extends Pricelists_Shop_List_View_Component
 {
-    public static function getSettings()
+    public function getTemplateVars(Kwf_Component_Renderer_Abstract $renderer = null)
     {
-        $ret = parent::getSettings();
-        $ret['cssClass'] .= 'webStandard';
-        return $ret;
-    }
-
-    protected function _getSearchSelect($ret, $searchRow)
-    {
-        $ret = parent::_getSearchSelect($ret, $searchRow);
+        $ret = parent::getTemplateVars($renderer);
+        $ret['title'] = $this->getData()->getPage()->name;
         return $ret;
     }
 }

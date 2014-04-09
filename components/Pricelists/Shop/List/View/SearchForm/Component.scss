@@ -4,6 +4,8 @@
     .webForm.kwcForm.veryNarrow.gt350,
     .webForm {
         form {
+            position: relative;
+
             .kwfField {
                 label {
                     display: none;
@@ -11,7 +13,28 @@
                 input {
                     width: 100%;
                     max-width: 100%;
-                    padding-left: 25px;
+                }
+            }
+            .submitWrapper {
+                position: absolute;
+                height: 100%;
+                right: 0;
+                margin: 0px;
+
+                .button {
+                    height: 100%;
+                    background-color: transparent;
+
+                    button {
+                        padding: 0px;
+
+                        span {
+                            background-image: url('/assets/web/images/search.png');
+                            display: block;
+                            height: 33px;
+                            width: 33px;
+                        }
+                    }
                 }
             }
         }

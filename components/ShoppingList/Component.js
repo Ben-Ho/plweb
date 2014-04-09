@@ -1,4 +1,5 @@
 Kwf.onElementReady('.shoppingList', function (el) {
+    el = el.child('.listContent');
     var list = window.localStorage.getItem('shoppingList');
     if (list) {
         var params = {

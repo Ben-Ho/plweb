@@ -7,7 +7,8 @@ class Directory_Products_Detail_Component extends Kwc_Directories_Item_Detail_Co
         $ret['componentName'] = trlStatic('Produkt');
         $ret['generators']['editForm'] = array(
             'class' => 'Kwf_Component_Generator_Page_Static',
-            'component' => 'Directory_Products_Detail_Form_Component'
+            'component' => 'Directory_Products_Detail_Form_Component',
+            'name' => trlStatic('Produkt bearbeiten')
         );
         return $ret;
     }
