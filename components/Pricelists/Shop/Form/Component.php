@@ -6,7 +6,10 @@ class Pricelists_Shop_Form_Component extends Kwc_Form_Component
         $ret = parent::getSettings();
         $ret['componentName'] = trlStatic('Produkt-Formular');
         $ret['generators']['child']['component']['success'] = 'Pricelists_Shop_Form_Success_Component';
+        $ret['assets']['files'][] = 'web/components/FormFields/TagSelect.js';
+        $ret['assets']['files'][] = 'web/components/FormFields/TagSelect.scss';
         $ret['useAjaxRequest'] = false;
+        $ret['viewCache'] = false;
         return $ret;
     }
 

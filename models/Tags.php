@@ -1,17 +1,10 @@
 <?php
-class Products extends Kwf_Model_Db
+class Tags extends Kwf_Model_Db
 {
-    protected $_table = 'p_product';
-
-    protected $_referenceMap = array(
-        'Shop' => array(
-            'refModelClass' => 'Shops',
-            'column' => 'shop_id',
-        )
-    );
+    protected $_table = 'p_tag';
 
     protected $_dependentModels = array(
-        'Tags' => 'ProductToTag'
+        'Products' => 'ProductToTag'
     );
 
     protected function _init()
@@ -21,4 +14,3 @@ class Products extends Kwf_Model_Db
         $this->_exprs['shop_name'] = new Kwf_Model_Select_Expr_Parent('Shop', 'name');
     }
 }
-

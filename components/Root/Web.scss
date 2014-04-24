@@ -41,6 +41,12 @@ body.frontend { background: var(lightGray); }
 .webForm button { color: var(light); background: none !important; border: none !important; }
 .webForm button:hover { color: var(mainColor); }
 
+html {
+    width: 100%;
+    height: 100%
+    overflow: hidden;
+}
+
 #innerContent {
     margin-bottom: 25px;
 }
