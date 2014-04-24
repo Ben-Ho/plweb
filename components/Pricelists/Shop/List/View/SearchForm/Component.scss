@@ -1,3 +1,4 @@
+@import "kwf/background-image-dpr2";
 .cssClass {
     border-bottom: 1px solid #6588FC;
 
@@ -29,7 +30,7 @@
                         padding: 0px;
 
                         span {
-                            background-image: url('/assets/web/images/search.png');
+                            @include background-image-dpr2('/assets/web/images', 'search.png', 33px, 33px, no-repeat left center transparent);
                             display: block;
                             height: 33px;
                             width: 33px;
