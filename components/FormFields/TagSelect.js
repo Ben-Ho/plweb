@@ -20,6 +20,7 @@ Kwf.onElementReady('.form-field-tag-select', function(el) {
         //FIXME filter tag
         if (ev.keyCode == 13) {
             addNewTag();
+            ev.preventDefault();
         }
     });
     el.child('.new-tag .add-button').on('click', function () {
