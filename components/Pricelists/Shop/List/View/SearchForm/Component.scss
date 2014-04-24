@@ -28,6 +28,7 @@
 
                     button {
                         padding: 0px;
+                        margin: 0px;
 
                         span {
                             @include background-image-dpr2('/assets/web/images', 'search.png', 33px, 33px, no-repeat left center transparent);
