@@ -16,11 +16,26 @@ Kwf.onElementReady('.form-field-tag-select', function(el) {
         });
     };
 
-    el.child('.new-tag input').on('keydown', function (ev) {
+    var filterTags = function (inputEl) {
+        var queryValue = inputEl.value.toLowerCase();
+        el.child('.select-tags .tag-pool').select('.tag').each(function (el) {
+            var value = el.dom.innerHTML.toLowerCase();
+            if (value.indexOf(queryValue) >= 0) {
+                el.removeClass('filtered');
+            } else {
+                el.addClass('filtered');
+            }
+        });
+    };
+
+    el.child('.new-tag input').on('keydown', function (ev, el) {
         //FIXME filter tag
         if (ev.keyCode == 13) {
             addNewTag();
+            filterTags();
             ev.preventDefault();
+        } else {
+            window.setTimeout(function () {filterTags(el);}, 100);
         }
     });
     el.child('.new-tag .add-button').on('click', function () {

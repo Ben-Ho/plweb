@@ -115,6 +115,10 @@
                         padding-right: 3px;
                     }
                 }
+
+                &.filtered {
+                    display: none;
+                }
             }
         }
     }
