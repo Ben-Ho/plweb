@@ -55,6 +55,7 @@ class FormFields_TagSelect extends Kwf_Form_Field_Abstract
         parent::afterSave($row, $postData);
         $tagsModel = Kwf_Model_Abstract::getInstance('Tags');
         $tags = array();
+        $deleteTags = array();
         foreach ($postData as $key => $value) {
             if (strpos($key, 'XX_') === 0) {
                 $select = new Kwf_Model_Select();
@@ -72,8 +73,19 @@ class FormFields_TagSelect extends Kwf_Form_Field_Abstract
                 if ($value == 'true') {
                     $tags[] = $tagRow;
                 } else if ($value == 'false') {
-                    //FIXME relation löschen
+                    $deleteTags[] = $tagRow;
                 }
+            }
+        }
+
+        $productToTagsModel = Kwf_Model_Abstract::getInstance('ProductToTag');
+        foreach ($deleteTags as $tag) {
+            $select = new Kwf_Model_Select();
+            $select->whereEquals('tag_id', $tag->id);
+            $select->whereEquals('product_id', $row->id);
+            $relationRow = $productToTagsModel->getRow($select);
+            if ($relationRow) {
+                $relationRow->delete();
             }
         }
 
