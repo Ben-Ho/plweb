@@ -11,8 +11,9 @@ class Pricelists_Shop_Form_FrontendForm extends Kwf_Form
             ->setEmptyText(trl('Marke und Produktname'));
         $this->add(new Kwf_Form_Field_NumberField('price', trl('Preis')))
             ->setAllowBlank(false);
-        $this->add(new FormFields_TagSelect('test', trl('Tags')));
-        $this->add(new Kwf_Form_Field_NumberField('quantity'));
+        $fs = $this->add(new Kwf_Form_Container_FieldSet());
+        $fs->setCls('unit-region');
+        $fs->add(new Kwf_Form_Field_NumberField('quantity'));
         $values = array();
         $values['ml'] = trl('Mililiter');
         $values['l'] = trl('Liter');
@@ -20,8 +21,10 @@ class Pricelists_Shop_Form_FrontendForm extends Kwf_Form
         $values['kg'] = trl('Kilogramm');
         $values['pieces'] = trl('Stück');
         $values['undefined'] = trl('Unbekannt');
-        $this->add(new Kwf_Form_Field_Select('unit'))
+        $fs->add(new Kwf_Form_Field_Select('unit'))
             ->setValues($values);
+        $this->add(new FormFields_TagSelect('test', trl('Tags')))
+            ->setAllowBlank(false);
     }
 
     protected function _beforeSave(Kwf_Model_Row_Interface $row)
