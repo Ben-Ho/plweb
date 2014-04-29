@@ -35,4 +35,10 @@ class Pricelists_Shop_Form_FrontendForm extends Kwf_Form
             $row->quantity = $row->quantity * 1000;
         }
     }
+
+    protected function _beforeInsert(Kwf_Model_Row_Interface $row)
+    {
+        parent::_beforeInsert($row);
+        $row->create_time = date('Y-m-d H:i:s', time());
+    }
 }

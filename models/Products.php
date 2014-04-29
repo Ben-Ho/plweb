@@ -11,7 +11,8 @@ class Products extends Kwf_Model_Db
     );
 
     protected $_dependentModels = array(
-        'Tags' => 'ProductToTag'
+        'Tags' => 'ProductToTag',
+        'History' => 'ProductHistory'
     );
 
     protected function _init()
