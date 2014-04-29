@@ -18,7 +18,14 @@ class Pricelists_Shop_List_View_Component extends Kwc_Directories_List_View_Comp
     protected function _getSearchSelect($ret, $searchRow)
     {
         $ret = parent::_getSearchSelect($ret, $searchRow);
-        $ret->where(new Kwf_Model_Select_Expr_Like('name', '%'.$searchRow->name.'%'));
+        $childSelect = new Kwf_Model_Select();
+        $childSelect->where(new Kwf_Model_Select_Expr_Like('tag_name', '%'.$searchRow->name.'%'));
+        $expressions = array();
+        $expressions[] = new Kwf_Model_Select_Expr_Like('name', '%'.$searchRow->name.'%');
+        if ($searchRow->also_tags) {
+            $expressions[] = new Kwf_Model_Select_Expr_Child_Contains('Tags', $childSelect);
+        }
+        $ret->where(new Kwf_Model_Select_Expr_Or($expressions));
         return $ret;
     }
 }

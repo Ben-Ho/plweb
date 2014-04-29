@@ -13,4 +13,10 @@ class ProductToTag extends Kwf_Model_Db
             'column' => 'tag_id',
         )
     );
+
+    protected function _init()
+    {
+        parent::_init();
+        $this->_exprs['tag_name'] = new Kwf_Model_Select_Expr_Parent('Tag', 'name');
+    }
 }
