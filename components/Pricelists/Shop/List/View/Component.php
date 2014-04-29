@@ -18,7 +18,7 @@ class Pricelists_Shop_List_View_Component extends Kwc_Directories_List_View_Comp
     protected function _getSearchSelect($ret, $searchRow)
     {
         $ret = parent::_getSearchSelect($ret, $searchRow);
-        $searchTerms = explode(' ', $searchRow);
+        $searchTerms = explode(' ', $searchRow->name);
 
         $expressions = array();
         $productNameSearch = array();
