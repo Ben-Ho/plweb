@@ -18,12 +18,23 @@ class Pricelists_Shop_List_View_Component extends Kwc_Directories_List_View_Comp
     protected function _getSearchSelect($ret, $searchRow)
     {
         $ret = parent::_getSearchSelect($ret, $searchRow);
-        $childSelect = new Kwf_Model_Select();
-        $childSelect->where(new Kwf_Model_Select_Expr_Like('tag_name', '%'.$searchRow->name.'%'));
+        $searchTerms = explode(' ', $searchRow);
+
         $expressions = array();
-        $expressions[] = new Kwf_Model_Select_Expr_Like('name', '%'.$searchRow->name.'%');
+        $productNameSearch = array();
+        foreach ($searchTerms as $searchTerm) {
+            $productNameSearch[] = new Kwf_Model_Select_Expr_Like('name', '%'.$searchTerm.'%');
+        }
+        $expressions[] = new Kwf_Model_Select_Expr_And($productNameSearch);
+
         if ($searchRow->also_tags) {
-            $expressions[] = new Kwf_Model_Select_Expr_Child_Contains('Tags', $childSelect);
+            $tagNameSearch = array();
+            foreach ($searchTerms as $searchTerm) {
+                $childSelect = new Kwf_Model_Select();
+                $childSelect->where(new Kwf_Model_Select_Expr_Like('tag_name', '%'.$searchTerm.'%'));
+                $tagNameSearch[] = new Kwf_Model_Select_Expr_Child_Contains('Tags', $childSelect);
+            }
+            $expressions[] = new Kwf_Model_Select_Expr_And($tagNameSearch);
         }
         $ret->where(new Kwf_Model_Select_Expr_Or($expressions));
         return $ret;
