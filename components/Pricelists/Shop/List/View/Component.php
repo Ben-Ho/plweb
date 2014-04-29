@@ -27,7 +27,7 @@ class Pricelists_Shop_List_View_Component extends Kwc_Directories_List_View_Comp
         }
         $expressions[] = new Kwf_Model_Select_Expr_And($productNameSearch);
 
-        if ($searchRow->also_tags) {
+//         if ($searchRow->also_tags) {
             $tagNameSearch = array();
             foreach ($searchTerms as $searchTerm) {
                 $childSelect = new Kwf_Model_Select();
@@ -35,7 +35,7 @@ class Pricelists_Shop_List_View_Component extends Kwc_Directories_List_View_Comp
                 $tagNameSearch[] = new Kwf_Model_Select_Expr_Child_Contains('Tags', $childSelect);
             }
             $expressions[] = new Kwf_Model_Select_Expr_And($tagNameSearch);
-        }
+//         }
         $ret->where(new Kwf_Model_Select_Expr_Or($expressions));
         return $ret;
     }
