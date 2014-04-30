@@ -20,29 +20,28 @@ class Directory_Products_Detail_Form_Component extends Kwc_Form_Component
     protected function _beforeSave(Kwf_Model_Row_Interface $row)
     {
         parent::_beforeSave($row);
-        $oldRow = Kwf_Model_Abstract::getInstance('Product')->getRow($row->id);
+        $oldRow = Kwf_Model_Abstract::getInstance('Products')->getRow($row->id);
         $saveHistory = false;
-        $priceHistoryRow = $row->createChildRow('PriceHistory');
-        $priceHistroyRow->product_id = $row->id;
-        $priceHistoryRow->create_time = $oldRow->create_time;
+        $historyRow = $oldRow->createChildRow('History');
+        $historyRow->create_time = $oldRow->create_time;
         if ($oldRow->name != $row->name) {
             $saveHistory = true;
-            $priceHistoryRow->name = $oldRow->name;
+            $historyRow->name = $oldRow->name;
         }
         if ($oldRow->price != $row->price) {
             $saveHistory = true;
-            $priceHistoryRow->price = $oldRow->price;
+            $historyRow->price = $oldRow->price;
         }
         if ($oldRow->quantity != $row->quantity) {
             $saveHistory = true;
-            $priceHistoryRow->quantity = $oldRow->quantity;
+            $historyRow->quantity = $oldRow->quantity;
         }
         if ($oldRow->unit != $row->unit) {
             $saveHistory = true;
-            $priceHistoryRow->unit = $oldRow->unit;
+            $historyRow->unit = $oldRow->unit;
         }
         if ($saveHistory) {
-            $priceHistoryRow->save();
+            $historyRow->save();
             $row->create_time = date('Y-m-d H:i:s', time());
         }
     }

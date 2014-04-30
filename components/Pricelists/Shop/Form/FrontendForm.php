@@ -13,7 +13,7 @@ class Pricelists_Shop_Form_FrontendForm extends Kwf_Form
             ->setAllowBlank(false);
         $fs = $this->add(new Kwf_Form_Container_FieldSet());
         $fs->setCls('unit-region');
-        $fs->add(new Kwf_Form_Field_NumberField('quantity'));
+        $fs->add(new Kwf_Form_Field_NumberField('quantity', trl('Menge')));
         $values = array();
         $values['ml'] = trl('Mililiter');
         $values['l'] = trl('Liter');

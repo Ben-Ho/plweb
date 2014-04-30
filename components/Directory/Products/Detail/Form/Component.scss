@@ -1,6 +1,13 @@
 .cssClass {
     background-color: var(mainColorLight);
 
+    .unit-region {
+        border: none;
+        padding: 0;
+        position: relative;
+        margin-bottom: 0px;
+    }
+
     .webForm.kwcForm,
     .webForm.kwcForm.veryNarrow.gt350 {
         form {
@@ -12,6 +19,17 @@
                 .kwfFormFieldWrapper.hasLabel {
                     input {
                         max-width: 100%;
+                    }
+                }
+                &.form_unit {
+                    position: absolute;
+                    right: 0px;
+                    top: 20px;
+
+                    .kwfFormFieldWrapper select {
+                        width: 120px !important;
+                        font-size: 20px;
+                        height: 34px;
                     }
                 }
             }
