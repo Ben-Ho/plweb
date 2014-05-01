@@ -13,7 +13,7 @@ class Pricelists_Shop_Form_FrontendForm extends Kwf_Form
             ->setAllowBlank(false);
         $fs = $this->add(new Kwf_Form_Container_FieldSet());
         $fs->setCls('unit-region');
-        $fs->add(new Kwf_Form_Field_NumberField('quantity', trl('Menge')));
+        $fs->add(new Kwf_Form_Field_TextField('quantity', trl('Menge')));
         $values = array();
         $values['ml'] = trl('Mililiter');
         $values['l'] = trl('Liter');
@@ -25,6 +25,26 @@ class Pricelists_Shop_Form_FrontendForm extends Kwf_Form
             ->setValues($values);
         $this->add(new FormFields_TagSelect('test', trl('Tags')))
             ->setAllowBlank(false);
+    }
+
+    public function validate($parentRow, $postData = array())
+    {
+        $ret = parent::validate($parentRow, $postData);
+        $postData['form_quantity'] = str_replace(',', '.', $postData['form_quantity']);
+        if (is_numeric($postData['form_quantity'])) {
+            if ($postData['form_quantity'] < 0) {
+                $ret[] = array(
+                    'field' => $this->getByName('quantity'),
+                    'message' => trl('Keine negativen Mengen erlaubt')
+                );
+            }
+        } else {
+            $ret[] = array(
+                'field' => $this->getByName('quantity'),
+                'message' => trl('Nur positive Zahlen erlaubt')
+            );
+        }
+        return $ret;
     }
 
     protected function _beforeSave(Kwf_Model_Row_Interface $row)
